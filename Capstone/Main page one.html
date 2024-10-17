@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Durham Community Outreach</title>
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<style> 
+    body {
+        color:white;
+    }
+</style>
+<body>
+
+    <!-- Header section -->
+    <header>
+        <!-- Add the logo to the header -->
+        <img src="img/LOGOS.jpg" alt="Compassion Compass" class="logo">
+            <h1>Compassion Compass </h1>
+        
+    </header>
+
+    <!-- Navigation bar with dropdown menu -->
+    <div class="navbar">
+        <div class="dropdown">
+            <button class="dropbtn"> Menu 
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="templates/feedback.html">Feedback</a>
+                <a href="resources.html">Resources</a>
+                <a href="about.html">About</a>
+                <a href="mapping.html">Mapping</a>
+            </div>
+        
+
+    <!-- Main content area with slideshow -->
+    <section class="main-content" style ="text-align: center;">
+                <h2>Welcome to Durham Community Outreach</h2>
+             <p>We are dedicated to helping the homeless community in Durham by providing resources, support, and advocacy.</p>
+        <p>Explore our website to learn more about how you can get involved, provide feedback, and find resources to help those in need.</p>
+
+        <!-- Slideshow container -->
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+                <img src="img/durham_1.jpg" style="width:100%" alt="Downtown Durham Image 1">
+            </div>
+
+            <div class="mySlides fade">
+                <img src="img/Durham_2.jpeg" style="width:100%" alt="Downtown Durham Image 2">
+            </div>
+
+            <div class="mySlides fade">
+                <img src="img/durham_3.jpg" style="width:100%" alt="Downtown Durham Image 3">
+            </div>
+        </div>
+
+        <!-- Dots/circles for navigation -->
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span> 
+            <span class="dot" onclick="currentSlide(2)"></span> 
+            <span class="dot" onclick="currentSlide(3)"></span> 
+        </div>
+    </section>
+
+    <!-- Footer section -->
+    <footer>
+        <p>&copy; 2024 Durham Community Outreach</p>
+    </footer>
+
+    <!-- JavaScript for Slideshow -->
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";  
+            dots[slideIndex-1].className += " active";
+            setTimeout(showSlides, 4000); // Change image every 4 seconds
+        }
+
+        function currentSlide(n) {
+            slideIndex = n;
+            showSlides();
+        }
+    </script>
+
+</body>
+</html>

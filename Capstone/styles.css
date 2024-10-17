@@ -1,0 +1,217 @@
+/* Basic styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0px;
+    background-color: #f3f0ea; /* Updated to a soft, neutral beige */
+    color: #333; /* Changed to a dark gray for better readability */
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* Header styling */
+header {
+    background-color: #2c3e50; /* Dark slate for a modern look */
+    color: rgb(250, 247, 247);
+    padding: 20px;
+    width: 100%; /* Make sure header spans full width */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Aligns items in the header to the left */
+}
+
+/* Logo styling */
+.logo {
+    height: 126px;
+    width: auto;
+    margin-right: 20px; /* Adds spacing between the logo and the text */
+}
+
+/* Navigation bar styling */
+.navbar {
+    display: flex;
+    justify-content: flex-start;
+    background-color: #34495e; /* Modern dark slate-blue */
+    width: 100%;
+}
+
+.navbar a {
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.navbar a:hover {
+    background-color: #27ae60; /* Updated hover to an earthy green */
+}
+
+/* Dropdown styling */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    color: white;
+    background-color: inherit;
+    padding: 14px 20px;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Main content area */
+.main-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 30px auto;
+    padding-left: 20px;
+}
+
+/* Slideshow container */
+.slideshow-container {
+    max-width: 1000px;
+    margin: auto;
+    position: relative;
+    text-align: center;
+}
+
+.mySlides {
+    display: none;
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Fade animation */
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+}
+
+@keyframes fade {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+}
+
+/* Dots/circles */
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active {
+    background-color: #717171;
+}
+
+/* Footer styling */
+footer {
+    background-color: #2c3e50; /* Match the header */
+    color: white;
+    text-align: center;
+    padding: 5px ;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin-top: auto;
+}
+
+/* New styles for the container and team-member section */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Headings Styling */
+header h1 {
+    color: #fff;
+    font-size: 36px;
+    margin: 0;
+
+}
+
+header h2 {
+    text-align: center;
+    color: #f7f9fc;
+}
+
+.team-member {
+    margin: 20px 0;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* New UL, LI and A Styles */
+ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center; /* Ensure list items are centered */
+}
+
+ul li {
+    margin-bottom: 10px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+ul li a {
+    text-decoration: none;
+    color: #0066cc;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+ul li a:hover {
+    text-decoration: underline;
+    color: #003366;
+}

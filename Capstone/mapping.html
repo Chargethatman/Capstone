@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.3.1/mapbox-gl-directions.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.3.1/mapbox-gl-directions.css" type="text/css">
+    <title>Compassion Compass Map - Mapbox Version</title>
+    
+    <!-- Header with Menu -->
+    <header>
+        <h1>Compassion Compass</h1>
+        <ul class="menu">
+            <li><a href="Main page one.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="templates/feedback.html">Feedback</a></li>
+        </ul>
+    </header>
+
+    <!-- Brief Summary -->
+    <div class="summary">
+        <p>This interactive map serves two main purposes: data collection for community resources and guidance for travel. Use the  map to locate shelters, food banks, and other essential services. The second part of map assists with navigating to your chosen destination.</p>
+    </div>
+
+    <style>
+        /* Header styling */
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f3f0ea; /* Updated to a soft, neutral beige */
+    color: #333;
+    line-height: 1.6; /* Added from the provided style */
+    padding: 0px; /* Added padding to the body */
+    }
+
+    header {
+    background-color: #2c3e50; /* Dark slate for a modern look */
+    color: white;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    }
+
+        /* Menu styling */
+        .menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .menu li {
+            display: inline;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .menu a:hover {
+            background-color: #45a049;
+        }
+
+        /* Summary section styling */
+        .summary {
+            padding: 20px;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        /* Map and body styling */
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        #map {
+            height: 75%;
+            width: 100%;
+        }
+        .info-window {
+            font-size: 14px;
+        }
+
+        /* Marker styling */
+        .marker {
+            border-radius: 12%;
+            border: 2px solid black;
+            background-size: 100%;
+        }
+    </style>
+    
+    <!-- Mapbox CSS -->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
+</head>
+<body>
+
+<div id="map"></div>
+
+<!-- Mapbox JS -->
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+<script>
+    // Set up the Mapbox access token
+    mapboxgl.accessToken = 'pk.eyJ1IjoiY29tcGFuaW9uNzciLCJhIjoiY20xbWpoNWZkMGl3bjJsb2w3cWV5YW10ciJ9.8p0-YM0ypzSF7l0K4JMDOA'; // Replace with your Mapbox access token
+
+    navigator.geolocation.getCurrentPosition(successLocation, errorLocation, {
+        enableHighAccuracy: true
+    });
+
+    function successLocation(position) {
+        setupMap([position.coords.longitude, position.coords.latitude]);
+    }
+
+    function errorLocation() {
+        setupMap([-78.8986, 35.9732]); // Default location (Durham, NC)
+    }
+
+    function setupMap(center) {
+        const map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: center,
+            zoom: 13
+        });
+
+        const nav = new mapboxgl.NavigationControl();
+        map.addControl(nav);
+
+        // Add directions control
+        var directions = new MapboxDirections({
+            accessToken: mapboxgl.accessToken,
+        });
+        map.addControl(directions, 'top-left');
+
+        // GeoJSON with Encampments and Unsheltered People locations
+        const geojson = {
+            'type': 'FeatureCollection',
+            'features': [
+                {
+                    'type': 'Feature',
+                    'properties': {
+                        'message': 'Durham Rescue Mission',
+                        'imageId': 'rescue-mission',
+                        'iconSize': [30, 30],
+                        'markerColor': 'green'
+                    },
+                    'geometry': {
+                        'type': 'Point',
+                        'coordinates': [-78.8772, 35.9961]
+                    }
+                },
+                {
+                    'type': 'Feature',
+                    'properties': {
+                        'message': 'Local Durham Food Bank',
+                        'imageId': 'food-bank',
+                        'iconSize': [30, 30],
+                        'markerColor': 'green'
+                    },
+                    'geometry': {
+                        'type': 'Point',
+                        'coordinates': [-78.9025, 35.9797]
+                    }
+                },
+                {
+                    'type': 'Feature',
+                    'properties': {
+                        'message': 'Encampments',
+                        'markerColor': 'red',
+                        'iconSize': [15, 15]
+                    },
+                    'geometry': {
+                        'type': 'Point',
+                        'coordinates': [-78.8995, 35.9806] // 826 Fayetteville St, Durham
+                    }
+                },
+                {
+                    'type': 'Feature',
+                    'properties': {
+                        'message': 'Mix Encampment and Unsheltered People',
+                        'markerColor': 'orange',
+                        'iconSize': [15, 15]
+                    },
+                    'geometry': {
+                        'type': 'Point',
+                        'coordinates': [-78.9002, 35.9792] // 710 Fayetteville St, Durham
+                    }
+                },
+                {
+                    'type': 'Feature',
+                    'properties': {
+                        'message': 'Unsheltered People',
+                        'markerColor': 'yellow',
+                        'iconSize': [15, 15]
+                    },
+                    'geometry': {
+                        'type': 'Point',
+                        'coordinates': [-78.8985, 35.9886] // Durham Transportation Lot
+                    }
+                }
+            ]
+        };
+
+        // Loop through geojson to create custom markers
+        for (const marker of geojson.features) {
+            // Create a DOM element for each marker
+            const el = document.createElement('div');
+            const width = marker.properties.iconSize[0];
+            const height = marker.properties.iconSize[1];
+            el.className = 'marker';
+            el.style.width = `${width}px`;
+            el.style.height = `${height}px`;
+            el.style.backgroundSize = '100%';
+            el.style.backgroundColor = marker.properties.markerColor; // Set background color for markers
+
+            // Set the background image for each location (replace with actual URLs)
+            if (marker.properties.imageId === 'rescue-mission') {
+                el.style.backgroundImage = 'url("https://www.durhamrescuemission.org/images/logo.svg")'; // Durham Rescue Mission logo
+            } else if (marker.properties.imageId === 'food-bank') {
+                el.style.backgroundImage = 'url("https://upload.wikimedia.org/wikipedia/commons/7/7d/Feeding_America_logo.png")'; // Example food bank logo, replace with the actual one
+            }
+
+            // Add event listener to display message on click
+            el.addEventListener('click', () => {
+                window.alert(marker.properties.message);
+            });
+
+            // Add the marker to the map
+            new mapboxgl.Marker(el)
+                .setLngLat(marker.geometry.coordinates)
+                .addTo(map);
+        }
+    }
+</script>
+
+</body>
+</html>
