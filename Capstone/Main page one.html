@@ -4,43 +4,190 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Durham Community Outreach</title>
-    <!-- Link to the external CSS file -->
-    <link rel="stylesheet" href="styles.css">
-</head>
+    
+    <style>
+        /* Basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f0ea; /* Soft beige */
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
 
-<style> 
-    body {
-        color:white;
-    }
-</style>
+        /* Header styling */
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        /* Logo styling */
+        .logo {
+            height: 100px;
+            width: auto;
+            margin-right: 20px;
+        }
+
+        /* Navigation bar styling */
+        .navbar {
+            display: flex;
+            justify-content: space-evenly;
+            background-color: #34495e;
+            width: 100%;
+        }
+
+        .navbar a {
+            font-size: 16px;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            flex: 1;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .navbar a:hover {
+            background-color: #27ae60;
+        }
+
+        /* Dropdown styling */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown .dropbtn {
+            font-size: 16px;
+            border: none;
+            color: white;
+            background-color: inherit;
+            padding: 14px 20px;
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Main content area */
+        .main-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        /* Slideshow container */
+        .slideshow-container {
+            max-width: 1000px;
+            margin: auto;
+            position: relative;
+            text-align: center;
+        }
+
+        .mySlides {
+            display: none;
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        /* Fade animation */
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @keyframes fade {
+            from { opacity: 0.4; }
+            to { opacity: 1; }
+        }
+
+        /* Dots/circles */
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active {
+            background-color: #717171;
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
 <body>
 
     <!-- Header section -->
     <header>
         <!-- Add the logo to the header -->
         <img src="img/LOGOS.jpg" alt="Compassion Compass" class="logo">
-            <h1>Compassion Compass </h1>
-        
+        <h1>Compassion Compass</h1>
     </header>
 
     <!-- Navigation bar with dropdown menu -->
     <div class="navbar">
         <div class="dropdown">
-            <button class="dropbtn"> Menu 
+            <button class="dropbtn">Menu 
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-                <a href="templates/feedback.html">Feedback</a>
-                <a href="resources.html">Resources</a>
                 <a href="about.html">About</a>
+                <a href="resources.html">Resources</a>
+                <a href="templates/feedback.html">Feedback</a>
                 <a href="mapping.html">Mapping</a>
             </div>
-        
+        </div>
+    </div>
 
     <!-- Main content area with slideshow -->
-    <section class="main-content" style ="text-align: center;">
-                <h2>Welcome to Durham Community Outreach</h2>
-             <p>We are dedicated to helping the homeless community in Durham by providing resources, support, and advocacy.</p>
+    <section class="main-content">
+        <h2>Welcome to Durham Community Outreach</h2>
+        <p>We are dedicated to helping the homeless community in Durham by providing resources, support, and advocacy.</p>
         <p>Explore our website to learn more about how you can get involved, provide feedback, and find resources to help those in need.</p>
 
         <!-- Slideshow container -->
