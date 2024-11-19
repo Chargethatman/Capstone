@@ -2,9 +2,9 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0px;
-    background-color: #f3f0ea; /* Updated to a soft, neutral beige */
-    color: #333; /* Changed to a dark gray for better readability */
+    padding: 0;
+    background-color: #CBF3F0; /* Light Aqua */
+    color: #333; /* Teal Green for main text */
     line-height: 1.6;
     display: flex;
     flex-direction: column;
@@ -15,41 +15,44 @@ body {
 
 /* Header styling */
 header {
-    background-color: #2c3e50; /* Dark slate for a modern look */
-    color: rgb(250, 247, 247);
+    background-color: #FF9F1C; /* Teal Green */
+    color: #FFFFFF; /* White text */
     padding: 20px;
-    width: 100%; /* Make sure header spans full width */
+    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* Aligns items in the header to the left */
+    justify-content: space-between;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-right: -25px;
+    white-space: nowrap;
 }
 
 /* Logo styling */
 .logo {
-    height: 126px;
+    height: 120px;
     width: auto;
-    margin-right: 20px; /* Adds spacing between the logo and the text */
+    margin-right: 20px;
 }
 
 /* Navigation bar styling */
 .navbar {
     display: flex;
     justify-content: flex-start;
-    background-color: #34495e; /* Modern dark slate-blue */
+    background-color: #FF9F1C; /* Light Orange */
     width: 100%;
+    margin-left: 400px;
 }
 
 .navbar a {
-    font-size: 16px;
-    color: white;
-    text-align: center;
+    font-size: 20px;
+    color: #FFFFFF; /* White text */
     padding: 14px 20px;
     text-decoration: none;
     transition: background-color 0.3s ease-in-out;
 }
 
 .navbar a:hover {
-    background-color: #27ae60; /* Updated hover to an earthy green */
+    background-color: #FF9F1C; /* Vivid Orange on hover */
 }
 
 /* Dropdown styling */
@@ -61,7 +64,7 @@ header {
 .dropdown .dropbtn {
     font-size: 16px;
     border: none;
-    color: white;
+    color: #FFFFFF; /* White text */
     background-color: inherit;
     padding: 14px 20px;
     cursor: pointer;
@@ -70,14 +73,14 @@ header {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
+    background-color: #FFFFFF; /* White background for dropdown */
     min-width: 160px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
 .dropdown-content a {
-    color: #333;
+    color: #2EC4B6; /* Teal Green text */
     padding: 12px 16px;
     text-decoration: none;
     display: block;
@@ -85,7 +88,7 @@ header {
 }
 
 .dropdown-content a:hover {
-    background-color: #ddd;
+    background-color: #FFBF69; /* Light Orange on hover */
 }
 
 .dropdown:hover .dropdown-content {
@@ -97,7 +100,11 @@ header {
     text-align: center;
     max-width: 800px;
     margin: 30px auto;
-    padding-left: 20px;
+    padding: 20px;
+    background-color: #FFFFFF; /* White background */
+    color: #333; /* Black text */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Slideshow container */
@@ -144,43 +151,117 @@ header {
 }
 
 .active {
-    background-color: #717171;
+    background-color: #FF9F1C; /* Vivid Orange for active dot */
 }
 
 /* Footer styling */
+
 footer {
-    background-color: #2c3e50; /* Match the header */
-    color: white;
+    background-color: #FF9F1C; /* Orange background */
+    color: #FFFFFF; /* White text */
     text-align: center;
-    padding: 5px ;
-    position: fixed;
-    bottom: 0;
+    padding: 20px;
     width: 100%;
-    margin-top: auto;
+    position: page-container;
+    bottom: 0;
+    left: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
+
+footer h2 {
+    color: #FFFFFF;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer ul li {
+    padding: 0;
+    margin: 0;
+    color: #FFFFFF;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    outline: none;
+}
+
+footer ul li a {
+    color: #333;
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background-color: transparent;
+}
+
+footer ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-contact {
+    margin-top: 20px;
+}
+
+.footer-contact p, .footer-contact .social-links {
+    margin: 5px 0;
+}
+
+.footer-contact a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.footer-contact a:hover {
+    text-decoration: underline;
+}
+
+.social-links {
+    margin-top: 10px;
+    font-size: 1em;
+}
+
+.social-links a {
+    margin: 0 10px;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    text-decoration: underline;
+}
+
 
 /* New styles for the container and team-member section */
 .container {
     max-width: 800px;
     margin: 20px auto;
-    background: #fff;
+    background: #FFFFFF; /* White background */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
+    color: #333; /* Black text */
 }
 
 /* Headings Styling */
 header h1 {
-    color: #fff;
+    color: #FFFFFF;
     font-size: 36px;
     margin: 0;
-
 }
 
 header h2 {
     text-align: center;
-    color: #f7f9fc;
+    color: #2EC4B6;
 }
 
 .team-member {
@@ -193,12 +274,12 @@ header h2 {
 ul {
     list-style-type: none;
     padding: 0;
-    text-align: center; /* Ensure list items are centered */
+    text-align: center;
 }
 
 ul li {
     margin-bottom: 10px;
-    background-color: #fff;
+    background-color: #FFFFFF; /* White background for list items */
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
@@ -206,12 +287,12 @@ ul li {
 
 ul li a {
     text-decoration: none;
-    color: #0066cc;
+    color: #FF9F1C; /* Vivid Orange text */
     font-weight: bold;
     transition: color 0.3s ease-in-out;
 }
 
 ul li a:hover {
     text-decoration: underline;
-    color: #003366;
+    color: #2EC4B6; /* Teal Green on hover */
 }

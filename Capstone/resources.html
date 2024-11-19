@@ -5,62 +5,248 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resources - Durham Community Resources</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Additional styling for filters */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Slideshow container */
+        .slideshow-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .slideshow-bg img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+        }
+
+        .slideshow-bg img.active {
+            opacity: 1;
+        }
+
+        /* Additional styling for filters */
+        .filter-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 10px;
+            z-index: 10;
+            position: relative;
+        }
+
+        .filter-button {
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        header {
+            background-color:#FF9F1C; /* Orange with transparency */
+            color: #FFFFFF;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        footer {
+            background-color: #FF9F1C; /* Orange background */
+            color: #FFFFFF;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+    </style>
 </head>
 <body>
+    <div class="slideshow-bg">
+        <img src="img/foodbank1.jpg" class="active" alt="Background 1">
+        <img src="img/foodbanks8.jpg" alt="Background 2">
+        <img src="img/shelters2.jpg" alt="Background 3">
+    </div>
 
     <!-- Header section -->
     <header>
-        <h1>Resources for the Homeless Community</h1>
-    </header>
-
+        <h1>Community Resources</h1>
     <!-- Navigation bar -->
-    <div class="navbar">
-        <a href="Main page one.html">Home</a>
-        <a href="templates/feedback.html">Feedback</a>
-        <a href="resources.html">Resources</a>
-        <a href="about.html">About</a>
-        <a href="mapping.html">Mapping</a>
+        <div class="navbar">
+            <a href="Main page one.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="resources.html">Resources</a>
+            <a href="mapping.html">Mapping</a>
+            <a href="basic-feedback-server/feedback.html">Feedback</a>
+        </div>
+    </header>
+    <!-- Filter section -->
+    <div class="filter-container">
+        <div>
+            <button class="filter-button" onclick="showSection('foodBanks')">Food Banks</button>
+            <button class="filter-button" onclick="showSection('shelters')">Shelters</button>
+            <button class="filter-button" onclick="showSection('otherResources')">Other Resources</button>
+            
+            </div>
+        
     </div>
 
     <!-- Main content section -->
     <div class="content">
-        <h2>Food Banks and Pantries</h2>
-        <ul>
-            <li><strong>Durham Community Food Pantry</strong> - Distributes food on Wednesdays (10:00 am-1:00 pm and 5:00 pm-7:00 pm) and Thursdays (10:00 am-1:00 pm). Case management services are available by appointment.</li>
 
-            <li><strong>Walltown Neighborhood Ministries Food Bank</strong> - Operates through Asbury United Methodist Church in Durham, NC 27705. Contact them directly for dates and hours of food distribution.</li>
+        <!-- Food Banks Section -->
+        <section id="foodBanks" style="display: none;">
+            <h2>Food Banks and Pantries</h2>
+            <ul id="foodBanksList">
+                
+                <ul>
+                    
+                    <li><strong><a href="https://www.calvarybc.org/" target="_blank">Calvary Baptist Church</a></strong> - Open on 3rd Thursdays.</li>
+                    <li><strong><a href="https://www.catholiccharitiesraleigh.org/dcfp/" target="_blank">Durham Community Food Pantry</a></strong> - Open Wednesday, 10:00 am - 1:00 pm, and Thursday, 10:00 am - 1:00 pm and 5:00 pm - 7:00 pm.</li>
+                    <li><strong><a href="https://www.durhamfirstag.org/" target="_blank">Durham First Assembly of God Food Distribution Center</a></strong> - Open every Thursday, 6:00 pm - 7:00 pm.</li>
+                    <li><strong><a href="https://www.durhamrescuemission.org/" target="_blank">Durham Rescue Mission</a></strong> - Open daily for emergency food services, 9:00 am - 6:00 pm.</li>
+                    <li><strong><a href="https://www.durhamtech.edu/campus-harvest" target="_blank">Durham Tech Campus Harvest Food Pantry</a></strong> - Open Monday to Friday, 9:00 am - 4:00 pm during school hours.</li>
+                    <li><strong><a href="https://www.feedmysheepdurham.org/" target="_blank">Feed My Sheep of Durham Food Distribution Center</a></strong> - Open Wednesday, 1:00 pm - 3:00 pm.</li>
+                    <li><strong><a href="https://www.fishermemorialuhc.org/" target="_blank">Fisher Memorial United Holy Church Food Distribution Center</a></strong> - Open every 2nd Saturday, 10:00 am - 12:00 pm.</li>
+                    <li><strong><a href="https://www.foodbankcenc.org/" target="_blank">Food Bank of Central & Eastern North Carolina at Durham</a></strong> - Open Monday to Friday, 8:00 am - 4:30 pm.</li>
+                    <li><strong><a href="https://www.goodwork.org/" target="_blank">Good Work Inc. Food Distribution Center</a></strong> - Open Monday to Friday, 8:30 am - 4:30 pm.</li>
+                    <li><strong><a href="https://www.immanueltemple.org/" target="_blank">Immanuel Temple SDA Community Service Food Distribution Center</a></strong> - Open every 2nd and 4th Sunday, 1:00 pm - 3:00 pm.</li>
+                    <li><strong><a href="tel:+19196885066">Mt Calvary United Church of Christ</a></strong> - Call for more information.</li>
+                    <li><strong><a href="https://www.mowdurham.org/" target="_blank">Meals On Wheels of Durham Inc. Food Distribution Center</a></strong> - Open Monday to Friday, meal deliveries from 10:00 am - 1:00 pm.</li>
+                    <li><strong><a href="https://www.ogufwb.org/" target="_blank">Oak Grove UA Free Will Baptist Church, Inc. Food Distribution Center</a></strong> - Open every 3rd Saturday, 10:00 am - 12:00 pm.</li>
+                    <li><strong><a href="https://www.russellmemorial.org/" target="_blank">Russell Memorial CME Church Food Distribution Center</a></strong> - Open every 2nd and 4th Saturday, 9:00 am - 11:00 am.</li>
+                    <li><strong><a href="https://www.salvationarmycarolinas.org/durham/" target="_blank">Salvation Army of Durham Food Distribution Center</a></strong> - Open Monday, Wednesday, and Friday, 9:00 am - 12:00 pm.</li>
+                    <li><strong><a href="https://www.southsidechurchofchrist.org/" target="_blank">Southside Church of Christ C.O.S.T. Food Distribution Center</a></strong> - Open every Saturday, 10:00 am - 12:00 pm.</li>
+                    <li><strong><a href="https://twofishfiveloaves.org/" target="_blank">Two Fish - Five Loaves</a></strong> - Open on 2nd and 4th Thursdays.</li>
+                    <li><strong><a href="https://umdurham.org/" target="_blank">Urban Ministries of Durham</a></strong> - Open daily, 7:30 am - 5:00 pm for emergency needs.</li>
+                    <li><strong><a href="https://www.asburyunitedmethodist.com/" target="_blank">Walltown Neighborhood Ministries Food Bank</a></strong> - Hours vary; contact for information.</li>
+                </ul>
+                
+                
+            </ul>
+        </section>
 
-            <li><strong>Mt Calvary United Church of Christ</strong> - Offers food assistance. You can call <a href="tel:+19196885066">(919) 688-5066</a> for more information.</li>
+        <!-- Shelter Section -->
+        <section id="shelters" style="display: none;">
+            <h2>Shelters - Rated Places to Stay</h2>
+            <ul id="shelterList">
+                
+                <li><a href="https://www.durhamhousingauthority.org" target="_blank">Durham Housing Authority</a> - Provides affordable housing options and support services for low-income families and individuals.</li>
+                <li><strong><a href="https://www.durhamrescuemission.org/" target="_blank">Durham Rescue Mission</a></strong> - Comprehensive shelter and community programs.</li>
+                <li><strong><a href="https://fmfnc.org/" target="_blank">Families Moving Forward</a></strong> - Shelter and services for families with children.</li>
+                <li><strong><a href="https://housingfornewhope.org/" target="_blank">Housing for New Hope</a></strong> - Offers stable housing and support programs.</li>
+                <li><strong><a href="https://www.opentableministry.org/" target="_blank">Open Table Ministry</a></strong> - Support and resources for the unsheltered.</li>
+                <li><strong><a href="https://umdurham.org/" target="_blank">Urban Ministries of Durham</a></strong> - Provides shelter and supportive services.</li>
+            </ul>
+            </ul>
+        </section>
 
-            <li><strong>Two Fish - Five Loaves</strong> - Operates on the 2nd and 4th Thursday of each month from 4:00 pm - 7:00 pm in Durham.</li>
+        <!-- Other Resources Section -->
+        <section id="otherResources" style="display: none;">
+            <h2>Other Resources</h2>
+            <ul>
+                <li><a href="https://www.durhamcrisisresponse.org" target="_blank">Durham Crisis Response Center</a> - Support for domestic violence survivors.</li>
+                <li><a href="https://www.dcopublichealth.org" target="_blank">Durham County Department of Public Health</a> - Offers health services, education, and support for individuals and families in need.</li>
+                <li><a href="https://www.durhamtech.edu" target="_blank">Durham Technical Community College</a> - Education and job training.</li>
+                <li><a href="https://www.caredu.org" target="_blank">CAARE Inc.</a> - Health care, job placement, and more.</li>
+                <li><a href="https://www.lincolnchc.org" target="_blank">Lincoln Community Health Center</a> - Medical care and mental health services.</li>
+                <li><a href="http://www.projectaccessdurham.org" target="_blank">Project Access of Durham Co.</a> - Connects uninsured individuals to donated medical care and provides case management services.</li>
+                <li><a href="https://www.summiterinc.com/" target="_blank">Summit Environment Resource Inc</a> - Provides sustainable solutions and support for environmental challenges and resource management.</li>
 
-            <li><strong>The Refuge House</strong> - Provides food distribution on the 3rd or 4th Thursday of each month from 3:00 pm - 5:00 pm.</li>
-
-            <li><strong>Calvary Baptist Church</strong> - Distributes food on the 3rd Thursday of the month from 6:30 pm - 7:30 pm; clients must call earlier in the day to sign up.</li>
-
-            <li>For a comprehensive list of all food assistance locations in Durham, you can visit <a href="https://www.foodpantries.org" target="_blank">FoodPantries.org</a>.</li>
-        </ul>
-
-        <h2>Housing Resources</h2>
-        <ul>
-            <li><strong>Durham Housing Authority (DHA)</strong> - The main public housing authority providing affordable housing in Durham. For more information on services and programs, visit the <a href="https://www.durhamhousingauthority.org" target="_blank">Durham Housing Authority website</a> or contact them directly.</li>
-
-            <li><strong>Urban Ministries of Durham</strong> - Provides shelter and supportive services for the homeless. For more details, visit <a href="https://www.umdurham.org" target="_blank">Urban Ministries of Durham</a>.</li>
-        </ul>
-
-        <h2>Other Resources</h2>
-        <ul>
-            <li><a href="https://www.durhamtech.edu" target="_blank">Durham Technical Community College</a> - Provides education and job training opportunities.</li>
-            <li><a href="https://www.lincolnchc.org" target="_blank">Lincoln Community Health Center</a> - Offers medical care and mental health services for low-income individuals.</li>
-            <li><a href="https://www.durhamcrisisresponse.org" target="_blank">Durham Crisis Response Center</a> - Provides support for individuals facing domestic violence and sexual assault.</li>
-            <li><a href="https://www.caredu.org" target="_blank">CAARE Inc.</a> - Offers a variety of services including health care, job placement, and legal assistance.</li>
-        </ul>
+                
+            </ul>
+        </section>
     </div>
 
     <!-- Footer section -->
-    <footer>
-        <p>&copy; 2024 Durham Community Outreach</p>
-    </footer>
+    <!-- Footer section -->
+<footer>
+    <!-- Footer Contact Information -->
+    <div class="footer-contact">
+        <p>Compassion Compass | <a href="mailto:info@compassioncompass.org">info@compassioncompass.org</a></p>
+        <p>123 Main Street, Durham, NC 27701</p>
+        <div class="social-links">
+            <a href="https://www.facebook.com" target="_blank">Facebook</a> |
+            <a href="https://www.twitter.com" target="_blank">Twitter</a> |
+            <a href="https://www.instagram.com" target="_blank">Instagram</a>
+        </div>
+        <p>&copy; 2024 Compassion Compass. All Rights Reserved.</p>
+    </div>
+</footer>
 
+
+    <!-- JavaScript for Slides Filters and Sorting -->
+    <script>
+        let slideIndex = 0;
+
+        function showSlides() {
+            const slides = document.querySelectorAll(".slideshow-bg img");
+            slides.forEach((slide, index) => {
+                slide.classList.remove("active");
+                if (index === slideIndex) {
+                    slide.classList.add("active");
+                }
+            });
+
+    slideIndex = (slideIndex + 1) % slides.length; // Loop through slides
+}
+
+setInterval(showSlides, 6000); // Change slide every 6 seconds
+        function showSection(sectionId) {
+            document.getElementById("foodBanks").style.display = "none";
+            document.getElementById("shelters").style.display = "none";
+            document.getElementById("otherResources").style.display = "none";
+            document.getElementById(sectionId).style.display = "block";
+        }
+
+        function sortList(listId, ascending) {
+            const list = document.getElementById(listId);
+            const items = Array.from(list.getElementsByTagName("li"));
+
+            items.sort((a, b) => {
+                const textA = a.textContent || a.innerText;
+                const textB = b.textContent || b.innerText;
+                return ascending ? textA.localeCompare(textB) : textB.localeCompare(textA);
+            });
+
+            items.forEach(item => list.appendChild(item));
+        }
+
+        // Show the Food Banks section by default
+        document.addEventListener("DOMContentLoaded", () => {
+            showSection("foodBanks");
+        });
+    </script>
+    
 </body>
 </html>
